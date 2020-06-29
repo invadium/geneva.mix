@@ -1,0 +1,27 @@
+#!/bin/sh
+
+#INSTALL='collider.jam'
+INSTALL='https://github.com/invider/collider.jam.git'
+PACKAGE=collider.jam
+
+echo "Looking for $PACKAGE in global module..."
+MODULE=`npm list -g | grep $PACKAGE`
+
+if [[ $MODULE == *$PACKAGE* ]]; then
+    echo 'Found '$MODULE
+    echo 'Uninstalling...'
+    npm uninstall -g collider.jam
+
+else
+    echo 'Not found'
+fi
+
+echo "Installing package globally: $INSTALL"
+npm install -g $PACKAGE
+
+echo "Testing installed version: "`jam version`
+
+echo "Ready!"
+echo "Running test server"
+jam -t -d play
+

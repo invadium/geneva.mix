@@ -1,0 +1,4 @@
+#!/bin/sh
+
+jam -t -d play
+
