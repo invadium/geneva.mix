@@ -5,20 +5,32 @@ function init() {
     this.ibox = -1
 }
 
+function enableBox(box) {
+    if (this.box) {
+        _$.mod.detachByName(this.box.name)
+    }
+
+    this.box = box
+    if (box.tune && box.tune.keep) this.timer = this.box.tune.keep
+    env.statusInfo.case = box.name
+    sys.enableBox(_, box, true)
+}
+
 function nextBox() {
     this.ibox ++
     if (this.ibox >= _$.box._ls.length) {
         this.ibox = 0
     }
 
-    if (this.box) {
-        _$.mod.detachByName(this.box.name)
-    }
+    this.enableBox(_$.box._ls[this.ibox])
+}
 
-    this.box = _$.box._ls[this.ibox]
-    if (this.box.tune.keep) this.timer = this.box.tune.keep
-    env.statusInfo.case = this.box.name
-    sys.enableBox(_, this.box, true)
+function prevBox() {
+    this.ibox --
+    if (this.ibox < 0) {
+        this.ibox = _$.box._ls.length - 1
+    }
+    this.enableBox(_$.box._ls[this.ibox])
 }
 
 function evo(dt) {
