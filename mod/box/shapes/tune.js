@@ -1,3 +1,3 @@
 const tune = {
-    keep: 5,
+    keep: 10,
 }
