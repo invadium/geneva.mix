@@ -1,10 +1,10 @@
 #!/bin/sh
 
 #INSTALL='collider.jam'
-INSTALL='https://github.com/invider/collider.jam.git'
+INSTALL='https://github.com/invider/collider.jam#develop'
 PACKAGE=collider.jam
 
-echo "Looking for $PACKAGE in global module..."
+echo "Looking for $PACKAGE in global modules..."
 MODULE=`npm list -g | grep $PACKAGE`
 
 if [[ $MODULE == *$PACKAGE* ]]; then
@@ -17,7 +17,7 @@ else
 fi
 
 echo "Installing package globally: $INSTALL"
-npm install -g $PACKAGE
+npm install -g $INSTALL
 
 echo "Testing installed version: "`jam version`
 
