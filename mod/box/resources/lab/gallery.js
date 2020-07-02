@@ -27,6 +27,8 @@ function draw() {
     // draw the text
     fill(.25, .5, .5)
     font('16px prstart')
+    baseTop()
+    alignLeft()
     const tw = textWidth(res.msg.message) + 40
     const th = textHeight()
     text(res.msg.message, 40, ry(.1))
