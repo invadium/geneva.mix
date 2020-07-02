@@ -7,13 +7,16 @@ function init() {
 
 function enableBox(box) {
     if (this.box) {
-        _$.mod.detachByName(this.box.name)
+        mod.detachByName(this.box.name)
     }
 
     this.box = box
     if (box.tune && box.tune.keep) this.timer = this.box.tune.keep
     env.statusInfo.case = box.name
     sys.enableBox(_, box, true)
+
+    box.Z = 11
+    mod.status.Z = 101
 }
 
 function nextBox() {
