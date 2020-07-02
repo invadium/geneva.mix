@@ -4,6 +4,17 @@
 INSTALL='https://github.com/invider/collider.jam#develop'
 PACKAGE=collider.jam
 
+echo '======================================='
+echo '|    Collider.JAM Geneva Test Suit    |' 
+echo '======================================='
+
+if which node > /dev/null; then
+    echo 'NodeJS... OK'
+else
+    echo 'NodeJS is Missing!'
+    echo 'Install http://nodejs.org before running the test suit'
+fi
+
 echo "Looking for $PACKAGE in global modules..."
 MODULE=`npm list -g | grep $PACKAGE`
 
