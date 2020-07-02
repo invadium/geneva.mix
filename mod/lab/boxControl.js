@@ -24,6 +24,7 @@ function nextBox() {
             env.complete = false
         } else {
             env.complete = true
+            env.statusInfo.status = 'Test Complete'
         }
         this.ibox = 0
         env.timeLeft = env.totalTime
