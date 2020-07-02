@@ -1,4 +1,3 @@
-#!/bin/sh
 
 jam -t -d --loop play
 

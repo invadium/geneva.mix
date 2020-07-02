@@ -1,5 +1,3 @@
-const DEFAULT_TIME = 5
-
 function init() {
     this.timer = 0
     this.ibox = -1
@@ -22,7 +20,13 @@ function enableBox(box) {
 function nextBox() {
     this.ibox ++
     if (this.ibox >= _$.box._ls.length) {
+        if (env.config.loop) {
+            env.complete = false
+        } else {
+            env.complete = true
+        }
         this.ibox = 0
+        env.timeLeft = env.totalTime
     }
 
     this.enableBox(_$.box._ls[this.ibox])
@@ -39,7 +43,10 @@ function prevBox() {
 function evo(dt) {
     this.timer -= dt
     if (this.timer < 0) {
-        this.timer = DEFAULT_TIME
+        this.timer = env.tune.defaultTestTime
         this.nextBox()
     }
+
+    env.timeLeft -= dt
+    env.statusInfo.timeLeft = ceil(env.timeLeft)
 }
