@@ -13,6 +13,7 @@ if which node > /dev/null; then
 else
     echo 'NodeJS is Missing!'
     echo 'Install http://nodejs.org before running the test suit'
+    exit 1
 fi
 
 echo "Looking for $PACKAGE in global modules..."
