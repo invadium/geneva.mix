@@ -9,5 +9,10 @@ function keyDown(e) {
         case 'ArrowLeft':
             lab.boxControl.prevBox()
             break
+
+        case 'KeyP':
+            if (_$.paused) _$.resume()
+            else _$.pause()
+            break
     }
 }
