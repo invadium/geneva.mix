@@ -1,12 +1,13 @@
 #!/bin/sh
 
 #INSTALL='collider.jam'
-INSTALL='https://github.com/invider/collider.jam#develop'
+INSTALL=${1:-'https://github.com/invider/collider.jam#develop'}
 PACKAGE=collider.jam
 
 echo '======================================='
 echo '|    Collider.JAM Geneva Test Suit    |' 
 echo '======================================='
+echo "Testing: $INSTALL"
 
 if which node > /dev/null; then
     echo 'NodeJS... OK'
