@@ -11,6 +11,7 @@ function enableBox(box) {
     this.box = box
     if (box.tune && box.tune.keep) this.timer = this.box.tune.keep
     env.statusInfo.case = box.name
+    log('activating ' + box.name)
     sys.enableBox(_, box, true)
 
     box.Z = 11
