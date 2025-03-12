@@ -1,4 +1,4 @@
 #!/bin/sh
 
-jam -t -d --loop play
+jam -t -d play --loop
 

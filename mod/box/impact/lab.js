@@ -27,7 +27,7 @@ function spawnAsteroid() {
             this.y += this.dy * dt
 
             // planet collision
-            const d = dist(this.x, this.y, x, y)
+            const d = distance(this.x, this.y, x, y)
             if (d < (this.r + r)) {
                 // boom!
                 res.impact.currentTime = 0 

@@ -26,10 +26,11 @@ function testAugment() {
     }
 
     augment(target, source)
+
     assert(target.a === 11)
     assert(target.b === 21)
     assert(target.c === 31)
-    assert(target.d === 41)
+    assert(target.d === 41, 'onAugment() failed')
     assert(target.e.f === 201)
     assert(target.e.g === 302)
     assert(target.e.h === 303)

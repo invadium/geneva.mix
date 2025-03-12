@@ -11,7 +11,7 @@ function cleanShapes() {
 }
 
 function spawnShape() {
-    const next = _$.lib.math.rnde(dna._ls)
+    const next = _$.lib.math.rnde(dna.shapes._ls)
     lab.shapes.spawn(next, {
         name: 'shape' + (++id),
         x: RND(rx(1)),
