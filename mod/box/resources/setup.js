@@ -16,6 +16,6 @@ function setup() {
 
     after(lab.hud.button1, 'onMouseDown', function() {
         // play 'click.wav' from /res
-        sfx(res.click)
+        if (!_._$.env.config.silent) sfx(res.click)
     })
 }

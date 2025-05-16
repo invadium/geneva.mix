@@ -31,7 +31,7 @@ function spawnAsteroid() {
             if (d < (this.r + r)) {
                 // boom!
                 res.impact.currentTime = 0 
-                res.impact.play()
+                if (!_._$.env.config.silent) res.impact.play()
                 impacts ++
                 this.toKill = true
             }
@@ -50,7 +50,7 @@ function spawnAsteroid() {
 
 function boing() {
     res.boing.currentTime = 0 
-    res.boing.play()
+    if (!_._$.env.config.silent) res.boing.play()
 }
 
 function evo(dt) {
