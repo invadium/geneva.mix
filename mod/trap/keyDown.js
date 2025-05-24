@@ -1,4 +1,5 @@
 function keyDown(e) {
+    if (e.repeat) return
 
     switch(e.code) {
         case 'Space':

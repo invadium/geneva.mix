@@ -7,4 +7,5 @@ function setup() {
     env.statusInfo = {
         totalTime: env.totalTime,
     }
+    signal('testTrap')
 }
