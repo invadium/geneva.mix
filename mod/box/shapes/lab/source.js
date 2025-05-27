@@ -17,7 +17,11 @@ function spawnShape() {
         x: RND(rx(1)),
         y: RND(ry(1)),
         r: 20 + RND(100),
-        h: rnd(),
+        color: {
+            h: rnd(),
+            s: .5,
+            l: .5,
+        }
     })
 }
 

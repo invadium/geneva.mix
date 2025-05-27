@@ -3,6 +3,8 @@ function onClone(st) {
         x: rx(.5),
         y: ry(.5),
         r: rx(.1),
+        aspect: .5 + rnd(),
+        angle: math.rnda(),
         color: {
             h: .5,
             s: .5,
@@ -13,5 +15,5 @@ function onClone(st) {
 
 function draw() {
     fill( hsl(this.color.h, this.color.s, this.color.l) )
-    rect(this.x, this.y, this.r, this.r)
+    ellipse(this.x, this.y, this.r, this.r * this.aspect, this.angle)
 }

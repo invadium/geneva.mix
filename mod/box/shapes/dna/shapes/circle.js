@@ -1,14 +1,17 @@
-function onSpawn(st) {
-    this.x = rx(.5)
-    this.y = ry(.5)
-    this.r = rx(.1)
-    this.h = .5
-    this.s = .5
-    this.l = .5
-    augment(this, st)
+function onClone(st) {
+    augment(this, {
+        x: rx(.5),
+        y: ry(.5),
+        r: rx(.1),
+        color: {
+            h: .5,
+            s: .5,
+            l: .5,
+        }
+    }, st)
 }
 
 function draw() {
-    fill(hsl(this.h, this.s, this.l))
+    fill( hsl(this.color.h, this.color.s, this.color.l) )
     circle(this.x, this.y, this.r)
 }

@@ -3,9 +3,11 @@ const RAIN = 1
 let r = 50
 let x = rx(.5)
 let y = ry(.5)
+let a = 0
 
 let dx = ry(.2)
 let dy = ry(.2)
+let da = -.25 * PI
 
 let impacts = 0
 const asteroids = []
@@ -56,6 +58,7 @@ function boing() {
 function evo(dt) {
     x += dx * dt
     y += dy * dt
+    a += da * dt
 
     // bounce off the screen edges
     if ((dx > 0 && x >= rx(1)-r) || (dx < 0 && x < r)) {
@@ -76,12 +79,21 @@ function evo(dt) {
     if (rnd() < RAIN*dt) spawnAsteroid()
 }
 
-function draw() {
+function drawPlanet() {
+    save()
+    translate(x, y)
+    rotate(a)
+
     lineWidth(4)
     stroke(.6, .5, .5)
-    circle(x, y, r)
-    image(res.planet, x-r, y-r, 2*r, 2*r)
+    circle(0, 0, r)
+    image(res.planet, -r, -r, 2*r, 2*r)
 
+    restore()
+}
+
+function draw() {
+    drawPlanet()
     asteroids.forEach(a => a.draw())
 
     font('36px moon')
