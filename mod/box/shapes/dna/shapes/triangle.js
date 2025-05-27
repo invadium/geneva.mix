@@ -13,15 +13,14 @@ function onClone(st) {
 }
 
 function draw() {
-    fill( hsl(this.color.h, this.color.s, this.color.l) )
 
     const { x, y, r, angle } = this
     const langle = angle - PI2/3,
           rangle = angle + PI2/3
 
-    save()
-    translate(x, y)
+    save().translate(x, y)
 
+    fill( hsl(this.color.h, this.color.s, this.color.l) )
     triangle(
         r * cos(angle),  r * sin(angle),
         r * cos(langle), r * sin(langle),

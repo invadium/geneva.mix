@@ -24,8 +24,7 @@ function evo(dt) {
 
 function draw() {
     // planet
-    lineWidth(5)
-    stroke(.58, .5, .7)   // color in float HSL
+    lineWidth(5).stroke(.58, .5, .7)   // color in float HSL
     circle(x, y, r)       // atmosphere haze
     image(res.mars_type_planet, x-r, y-r, 2*r, 2*r)
 }

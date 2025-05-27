@@ -17,30 +17,36 @@ function init() {
 }
 
 function spawnAsteroid() {
+
     asteroids.push({
-        r: 25,
+        r: 15 + 25*rnd(),
         x: rnd(rx(1)),
         y: -50,
+        a:  0,
         dx: rnd(ry(.2)) - ry(.1),
         dy: ry(.2),
+        da: .2*HALF_PI + rnd()*HALF_PI,
 
         evo: function(dt) {
             this.x += this.dx * dt
             this.y += this.dy * dt
+            this.a += this.da * dt
 
             // planet collision
             const d = distance(this.x, this.y, x, y)
             if (d < (this.r + r)) {
                 // boom!
                 res.impact.currentTime = 0 
-                if (!_._$.env.config.silent) res.impact.play()
+                if (!_._$.env.config.silent) sfx(res.impact)
                 impacts ++
                 this.toKill = true
             }
         },
 
         draw: function() {
-            image(res.asteroid, this.x-this.r, this.y-this.r, 2*this.r, 2*this.r)
+            save().translate(this.x, this.y).rotate(this.a)
+            image(res.asteroid, -this.r, -this.r, 2*this.r, 2*this.r)
+            restore()
         }, 
 
         kill: function() {
@@ -52,7 +58,7 @@ function spawnAsteroid() {
 
 function boing() {
     res.boing.currentTime = 0 
-    if (!_._$.env.config.silent) res.boing.play()
+    if (!_._$.env.config.silent) sfx(res.boing)
 }
 
 function evo(dt) {
