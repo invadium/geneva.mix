@@ -1,11 +1,11 @@
-function setup() {
-    // show status
-    mod.status.lab.status.hidden = !mod.status.lab.status.hidden
-
+function setupEnv() {
     env.totalTime = lib.calcTotalTime()
     env.timeLeft = env.totalTime
     env.statusInfo = {
         totalTime: env.totalTime,
     }
-    signal('testTrap')
+
+    // show status
+    mod.status.lab.status.hidden = !mod.status.lab.status.hidden
 }
+setupEnv.Z = 1

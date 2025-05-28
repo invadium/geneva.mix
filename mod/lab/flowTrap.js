@@ -1,23 +1,23 @@
 function keyDown(e) {
     if (e.repeat) return
 
-    switch(e.code) {
-        case 'Space':
+    switch(e.action) {
+        case 'play':
             lab.boxControl.nextBox()
             lab.boxControl.paused = false
             break
 
-        case 'ArrowRight':
+        case 'prev':
             lab.boxControl.nextBox()
             lab.boxControl.paused = true
             break
 
-        case 'ArrowLeft':
+        case 'next':
             lab.boxControl.prevBox()
             lab.boxControl.paused = true
             break
 
-        case 'KeyP':
+        case 'pause':
             if (_$.paused) _$.resume()
             else _$.pause()
             break
