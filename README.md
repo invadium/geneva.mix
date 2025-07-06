@@ -19,7 +19,7 @@ Or you could use the ```probe``` script to start directly in the default browser
 To run silently, use ```--silent``` flag:
 
 ```
-jam -d --silent
+jam -d --test --silent
 ```
 
 Or, alternatively:
